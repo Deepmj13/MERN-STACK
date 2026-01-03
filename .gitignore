@@ -1,0 +1,96 @@
+########################################
+# Root Level (Monorepo)
+########################################
+node_modules/
+.env
+.env.*
+!.env.example
+
+########################################
+# Workspace Package Manager
+########################################
+.pnpm-store/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnpm-debug.log*
+npm-debug.log*
+yarn-error.log*
+
+########################################
+# Build Outputs (All Apps & Packages)
+########################################
+dist/
+build/
+out/
+.tmp/
+.cache/
+
+########################################
+# Apps (Frontend / Backend)
+########################################
+apps/**/node_modules/
+apps/**/.env
+apps/**/dist/
+apps/**/build/
+apps/**/out/
+apps/**/.next/
+apps/**/.vercel/
+
+########################################
+# Packages (Shared Libraries)
+########################################
+packages/**/node_modules/
+packages/**/dist/
+packages/**/build/
+packages/**/out/
+
+########################################
+# Backend Specific
+########################################
+logs/
+uploads/
+*.log
+
+########################################
+# Testing & Coverage
+########################################
+coverage/
+.nyc_output/
+
+########################################
+# Turborepo / Nx
+########################################
+.turbo/
+.nx/
+nx-cache/
+
+########################################
+# Docker
+########################################
+docker-data/
+*.pid
+*.pid.lock
+
+########################################
+# OS Files
+########################################
+.DS_Store
+Thumbs.db
+desktop.ini
+
+########################################
+# IDE / Editor
+########################################
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+########################################
+# Misc
+########################################
+*.local
+*.seed
