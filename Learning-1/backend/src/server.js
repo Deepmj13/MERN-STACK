@@ -9,7 +9,9 @@ connectDB();
 const app = express();
 const port = 5001;
 
-app.use("/api/hello", notesRoutes);
+app.use(express.json());
+
+app.use("/api/notes", notesRoutes);
 
 app.listen(port, (req, res) => {
   console.log(`server is running at ${port}`);
