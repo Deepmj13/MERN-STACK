@@ -1,6 +1,112 @@
-*{
-  margin:0;padding:0;box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-  background-color: #000;color: #fff;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background: #111;
+  color: #f2f2f2;
+  font-family: "poppins", sans-serif;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+.hero {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header {
+  width: 100vw;
+  padding: 2rem 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo{
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e63946;
+}
+.create button{
+  padding: 0.6rem 1.2rem;
+  background: #e63946;
+  border: none;
+  border-radius: 6px;
+  color: #f2f2f2;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease; 
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.create button:hover{
+  background: #b12323;
+}
+.notes {
+  width: 80%;
+  margin: 0 auto;
+  padding: 4rem 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: stretch; /* cards align evenly */
+}
+
+.note {
+  border-top: 5px solid #e63946;
+  border-radius: 8px;
+  padding: 1.5rem;
+  flex: 1 1 300px; /* responsive card width */
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  display:flex;align-items: start;flex-direction: column;gap:1.2rem;
+}
+.title{
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.info{
+  flex-grow: 1;
+  font-size: 1rem;
+  color: #a3a3a3;
+}
+.note-action{
+  width: 100%;
+  display: flex;justify-content: space-between;
+}
+.section{
+  width: 100vw;height: 60vh;display: flex;align-items: center;justify-content: center;
+}
+.content{
+  width: 60%;text-align: center;
+   padding: 2rem; border-radius: 8px; color: #FFF;
+}
+
+
+
+@media screen and (max-width: 400px) {
+  .header {
+    margin: 1rem;
+    padding:2rem;
+  }
+.create button{
+  font-size: 0.9rem;
+  padding: 0.2rem 0.5rem;
+}
+.logo{
+  font-size: 1.2rem;
+}
 }
