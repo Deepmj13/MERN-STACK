@@ -2,19 +2,21 @@ import ratelimit from "../config/upstash.js";
 
 const rateLimiter = async (req, res, next) => {
   try {
-    const identifier = req.ip || req.headers["x-forwarded-for"] || "anonymous";
+    const key = req.ip; // or req.user.id
 
-    const { success } = await ratelimit.limit(identifier);
+    const { success, remaining, reset } = await ratelimit.limit(key);
 
     if (!success) {
-      return res
-        .status(429)
-        .json({ message: "Too many requests. Please try again later." });
+      return res.status(429).json({
+        message: "Too many requests. Please try again later.",
+        reset,
+      });
     }
+
     next();
-  } catch (error) {
-    console.error("Rate limiter error:", error);
-    return res.status(500).json({ message: "Internal server error" });
+  } catch (err) {
+    console.error("Rate limit error:", err);
+    next(); // fail open
   }
 };
 

@@ -1,6 +1,5 @@
 import { CloudLightning } from 'lucide-react'
-import React from 'react'
-import Navbar from '../components/Navbar'
+
 
 function Ratelimit() {
   return (
