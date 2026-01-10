@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar'
 import Ratelimit from './Ratelimit';
 import axios from 'axios';
 function Home() {
-  const [isRatelimit, setIsRatelimit] = useState(true);
+  const [isRatelimit, setIsRatelimit] = useState(false);
   const [isHome, setHome] = useState(false);
   const [notes, setNotes] = useState([]);
   const [loading, setLoading] = useState(true);

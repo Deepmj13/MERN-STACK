@@ -14,7 +14,7 @@ export const createNote = async (req, res) => {
   try {
     const { title, content } = req.body;
     const newNote = new Note({ title, content });
-    newNote.save();
+    await newNote.save();
     res.status(201).json({ message: "New Note is created" });
   } catch (error) {
     console.error(error);
