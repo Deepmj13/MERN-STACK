@@ -1,5 +1,6 @@
 import React from 'react'
 import { Plus } from 'lucide-react';
+import { Link } from 'react-router';
 
 function Navbar() {
   return (
@@ -8,7 +9,7 @@ function Navbar() {
         ThinkBoard
       </span>
       <span className="create">
-        <button><Plus />Create Note</button>
+        <Link to={"/create"}><Plus />Create Note</Link>
       </span>
     </div>
   )
