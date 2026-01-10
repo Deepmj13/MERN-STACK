@@ -192,7 +192,12 @@ form > span {
   padding:.8rem;
   background-color: #e63946;
   border: none;outline:none;color: #fff;
-  font-size: 1.1rem;
+  font-size: 1.1rem;cursor: pointer;
+  transition:300ms;
+}
+.formcontent button:active{
+  scale: 0.98;
+  transform:translateY(-3px);
 }
 
 /* Responsive adjustments */
