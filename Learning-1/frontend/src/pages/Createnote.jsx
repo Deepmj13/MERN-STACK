@@ -15,6 +15,9 @@ async function handleForm (e) {
 try {
     const created = await axios.post("http://localhost:5001/api/notes",{title,content}) 
     setLoading(false)
+    setTitle("")
+    setContent("")
+
 } catch (error) {
     alert("not created")
 }
