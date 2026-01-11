@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import Ratelimit from './Ratelimit';
 import axios from 'axios';
+import api from '../lib/axios';
 function Home() {
   const [isRatelimit, setIsRatelimit] = useState(false);
   const [isHome, setHome] = useState(false);
@@ -12,7 +13,7 @@ function Home() {
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const res = await axios.get('http://localhost:5001/api/notes');
+        const res = await api.get('/notes');
         setNotes(res.data);
         setHome(true);
         setIsRatelimit(false);
@@ -28,13 +29,13 @@ function Home() {
 
   }, [])
   const onDelete = async (id) =>{
-    const deletedNote = await axios.delete(`http://localhost:5001/api/notes/${id}`);
+    const deletedNote = await api.delete(`/notes/${id}`);
     if(deletedNote.status === 200){
       setNotes(notes.filter(note => note._id !== id));
     }
   }
   const onEdit = async (id,updateContent) =>{ 
-  const editedNote = await axios.put(`http://localhost:5001/api/notes/${id}`,{content:updateContent});
+  const editedNote = await api.put(`/notes/${id}`,{content:updateContent});
   if(editedNote.status === 200){
     const updatedNotes = notes.map(note => {
       if(note._id === id){

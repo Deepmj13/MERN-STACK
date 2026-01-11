@@ -1,23 +1,24 @@
 import axios from 'axios';
 import { ArrowBigLeft } from 'lucide-react'
 import React, {useState } from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
+import api from '../lib/axios';
 
 function Createnote() {
 const [title,setTitle]= useState("");
 const [content,setContent]= useState("");
 const [loading,setLoading] = useState(false);
-
+const navigate = useNavigate();
 async function handleForm (e) {
   e.preventDefault();
   setLoading(true);
   if(!title.trim() || !content.trim()){setLoading(false); return alert("all fields required");}
 try {
-    const created = await axios.post("http://localhost:5001/api/notes",{title,content}) 
+    const created = await api.post("/notes",{title,content}) 
     setLoading(false)
-    setTitle("")
-    setContent("")
-
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
 } catch (error) {
     alert("not created")
 }
