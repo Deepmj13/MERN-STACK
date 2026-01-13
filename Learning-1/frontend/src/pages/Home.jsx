@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar'
 import Ratelimit from './Ratelimit';
 import axios from 'axios';
 import api from '../lib/axios';
+import { Link } from 'react-router';
 function Home() {
   const [isRatelimit, setIsRatelimit] = useState(false);
   const [isHome, setHome] = useState(false);
@@ -34,22 +35,22 @@ function Home() {
       setNotes(notes.filter(note => note._id !== id));
     }
   }
-  const onEdit = async (id,updateContent) =>{ 
-  const editedNote = await api.put(`/notes/${id}`,{content:updateContent});
-  if(editedNote.status === 200){
-    const updatedNotes = notes.map(note => {
-      if(note._id === id){
-        return {...note, content: updateContent};
-      }
-      return note;
-    });
-} }
+//   const onEdit = async (id,updateContent) =>{ 
+//   const editedNote = await api.put(`/notes/${id}`,{content:updateContent});
+//   if(editedNote.status === 200){
+//     const updatedNotes = notes.map(note => {
+//       if(note._id === id){
+//         return {...note, content: updateContent};
+//       }
+//       return note;
+//     });
+// } }
   return (
     <div>
       <Navbar />
       <section className="hero">
         {isRatelimit && <Ratelimit />}
-        {isHome && <Notediv  notes={notes} onDelete={onDelete} onEdit={onEdit}/>}
+        {isHome && <Notediv  notes={notes} onDelete={onDelete}/>}
 
       </section>
 
@@ -57,7 +58,7 @@ function Home() {
     </div>
   )
 }
-const Notediv = ({notes,onDelete,onEdit}) => {
+const Notediv = ({notes,onDelete}) => {
   return (
     <div className="notes">
       {notes.map((note) => (
@@ -69,9 +70,9 @@ const Notediv = ({notes,onDelete,onEdit}) => {
           <div className="note-action">
             <span className="date">{new Date(note.createdAt).toLocaleDateString()}</span>
             <span className="actions">
-              <button onClick={() => onEdit(note._id,note.content)} style={{background:'none',border:'none',cursor:'pointer',color:'#fff'}}>
+              <Link to={`/note/${note._id}`} style={{background:'none',border:'none',cursor:'pointer',color:'#fff'}}>
                 <Edit />
-              </button>
+              </Link>
               <button onClick={()=>onDelete(note._id)} style={{background:'none',border:'none',cursor:'pointer',color:'#fff'}}> <Trash /></button>
             </span>
           </div>
