@@ -9,7 +9,7 @@ function Navbar() {
         ThinkBoard
       </span>
       <span className="create">
-        <Link to={"/create"}><Plus />Create Note</Link>
+        <Link to={"/create"} className='lnk'><Plus />Create Note</Link>
       </span>
     </div>
   )

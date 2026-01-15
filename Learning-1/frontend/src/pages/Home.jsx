@@ -63,6 +63,7 @@ const Notediv = ({notes,onDelete}) => {
     <div className="notes">
       {notes.map((note) => (
         <div className="note" key={note._id}>
+          <Link to={`/note/${note._id}`} className='note-container' style={{background:'none',border:'none',cursor:'pointer',color:'#fff'}}>
           <span className="title">
             {note.title}
           </span>
@@ -70,12 +71,12 @@ const Notediv = ({notes,onDelete}) => {
           <div className="note-action">
             <span className="date">{new Date(note.createdAt).toLocaleDateString()}</span>
             <span className="actions">
-              <Link to={`/note/${note._id}`} style={{background:'none',border:'none',cursor:'pointer',color:'#fff'}}>
+              
                 <Edit />
-              </Link>
               <button onClick={()=>onDelete(note._id)} style={{background:'none',border:'none',cursor:'pointer',color:'#fff'}}> <Trash /></button>
             </span>
           </div>
+        </Link>
         </div>
       ))}
 

@@ -41,8 +41,11 @@ function NoteDetail() {
         </div>
 
         <div className="note-detail">
-          <h1>{title}</h1>
-          <p>{content}</p>
+          <p>Title</p>
+          <input value={title}/>
+          <p>content</p>
+          <input value={content}/>
+          <button>Save Changes</button>
         </div>
       </div>
     </section>
