@@ -48,5 +48,3 @@ By completing the projects in this repository, you will gain experience with:
 - Postman / Thunder Client
 
 ---
-
-## 📁 Repository Structure
